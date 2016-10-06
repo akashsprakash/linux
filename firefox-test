@@ -1,0 +1,13 @@
+#! /bin/bash
+# program to check whether firefox is running
+
+# checks whether the process firefox runs in lib and user space
+ counts=$(ps -ef| grep -i "/firefox/firefox"| grep -ivc "grep")
+
+ # variable count will have 0 if firefox is not running and a non-zero if firefox is running
+ if [ $counts = 0 ]; then
+ 	echo "Firefox is not running."
+ else 
+ 	echo "Firefox is running"
+ fi
+
