@@ -1,0 +1,5 @@
+#! /bin/bash
+
+
+##shell script for finding number of authors from a git log
+git log| grep -i "author" | cut -f2 -d ":" | cut -f1 -d "<"|sort| uniq -c
