@@ -1,0 +1,7 @@
+#!/bin/bash
+
+#Shell script for backup /var/www/hmtl to given location
+
+  echo "Enter the desired back-up location"
+  read backuplocation
+  cp -avr /var/www/html $backuplocation
