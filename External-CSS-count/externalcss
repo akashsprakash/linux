@@ -1,0 +1,6 @@
+#!/bin/bash
+#shell script to count the number of css in duckduckgo.com
+ wget "duckduckgo.com"
+#gets the index file of duckduckgo.com
+ count=$(less index.html|grep -ic "<link ")
+ echo "Number of external CSS links: $count"
