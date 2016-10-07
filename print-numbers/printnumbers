@@ -1,0 +1,8 @@
+#!/bin/bash
+#Shell script to print first 10 numbers
+#Max contains limit number
+  max=10
+  for i in `seq 1 $max`
+  do
+    echo "$i"
+  done
