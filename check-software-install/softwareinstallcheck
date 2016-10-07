@@ -1,0 +1,12 @@
+#!/bin/bash
+# program to check whether a particular software is installed
+ #searchkey contains the command argument
+ searchkey=$1
+ counts=$(dpkg -l | awk {'print $2'} |grep -ic "$searchkey")
+ # variable count will have 0 if given software is not installed
+ if [ $counts = 0 ]; then
+ 	echo "$searchkey is not installed."
+ else 
+ 	echo "$searchkey is installed."
+ fi
+
