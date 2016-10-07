@@ -1,0 +1,6 @@
+#!/bin/bash
+#shell program for printing quotes in a sentence using echo
+
+ echo "The man said \"hello\" "
+
+#statements inside '\" \"' will be echoed intact, including quotes.
