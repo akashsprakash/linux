@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#This is a program to check whether the input number is less than 12
+  echo "Enter the number"
+  read inputnumber
+  if [ $inputnumber -lt 12 ]; then
+    echo "Input is less than 12."
+  else
+    echo "The number is greater then 12."
+  fi

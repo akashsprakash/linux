@@ -1,0 +1,6 @@
+#!/bin/bash
+#Shell script to read two script parameter and concatenate it
+
+
+  new=$1$2
+  echo $new

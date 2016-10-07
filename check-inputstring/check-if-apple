@@ -1,0 +1,9 @@
+#!/bin/bash
+#This is a SHELL SCRIPT to find whether the input string is apple
+  echo "Enter the string value"
+  read stringval
+  if [ $stringval = "apple" ]; then
+    echo "Input is apple"
+  else
+    echo "Input string is not apple."
+  fi	
