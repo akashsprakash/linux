@@ -1,0 +1,16 @@
+#!/bin/bash
+#shell script to check current time and print greeting message accordingly
+  #count will have the hour in 24hour format
+  counts=$(date| awk {'print $4'}|cut -f1 -d":")
+  if [ $counts -lt 12 ]; then
+    echo"Good Morning!"
+#count value will have 12-16 for before 4pm and after 12pm
+   elif [ $counts -ge 12 -a $counts -lt 16 ]; then
+   echo "Good Afternoon"
+#count value will have 16-20 for before 8pm and after 4pm
+   elif [ $counts -ge 16 -a $counts -lt 20 ]; then
+   echo "Good evening"
+#count value will have 20-23 for after 8pm
+   elif [ $counts -ge 20 -a $counts -lt 24 ]; then
+   echo "Good night"
+  fi
