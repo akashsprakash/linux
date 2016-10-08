@@ -1,0 +1,7 @@
+#!/bin/bash
+#Shell program to recursively copy contents of current directory to another specified directory
+  echo "Enter the desired directory copying location: "
+  read locationcopy
+  present=`pwd`
+#presnet will have path of current directory
+  cp -rui $present $locationcopy
