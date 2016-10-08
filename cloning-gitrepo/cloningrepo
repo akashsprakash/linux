@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#Shell script to clone a git repo from github and find out all the authors.
+#The clone url should be provide as command line parameter.
+#If there is no command line parameter or more than one parameter show error and the script usage.
+
+#If checks for null or more than one parameter
+  if [[ $1 -eq " " || $2 =~ [^a-zA-Z0-9] ]]; then
+   echo "Invalid input. This is a shell script to clone git repo using command line url."
+  else
+   gitrepo=$1
+#gitrepo contains first commandline argument
+   git clone $gitrepo
+#command to clone from url
+   cd $(find `pwd` -type d|sed -n 2p)
+#git log file is present inside the .git folder of newly created folder.
+#cd changes directory to inside the folder containing .git folder for git commands to work. 
+   git log| grep -i "author" | cut -f2 -d ":" | cut -f1 -d "<"|sort|uniq
+  fi
