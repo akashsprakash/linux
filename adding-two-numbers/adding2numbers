@@ -1,0 +1,16 @@
+
+#!/bin/bash
+#shellscript to add two numbers supplied as command line arguments. 
+#If these two inputs are null or invalid, show error and its usage
+
+#open shell script in bash using "./<filename>" Doesnt work on shsince bash expressions are present
+  number1=$1
+  number2=$2
+  re='^[0-9]+$'
+#re containts expression to validate number
+  if [[ $number1 =~ $re && $number2 =~ $re ]]; then
+    sum=$(expr $1 + $2)
+    echo "Sum: " $sum
+  else
+    echo "Invalid input. Check your input." 
+  fi
