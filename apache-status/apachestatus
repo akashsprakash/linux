@@ -1,0 +1,12 @@
+#!/bin/bash
+#Shell script to check if apache server is running. if not start it, else restart it.
+ 
+  count=`ps -ef | grep "apache2"|awk {'print $10'}| grep -c "start"`
+  if [ $count = 0 ]; then
+ 	echo "Starting apache..."
+ 	sudo service apache2 start
+  else 
+ 	echo "Restarting apache"
+ 	`sudo service apache2 restart`
+
+  fi
