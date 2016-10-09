@@ -1,0 +1,7 @@
+#!/bin/bash
+#Shell script to read the apache log form var and find all visitors who visited the localhost yesterday
+  date=`date -d "yesterday 13:00 " '+%d/%b/%Y'`
+#date variable will have the yesterdays date in dd/mm/yyyy format
+#%b gives locale's abbreviated month name (e.g., Jan)
+  echo "Local host visitors from $date: "
+  less /var/log/apache2/access.log |grep "$date"|awk '{print $1}'|sort|uniq|grep -v ":"

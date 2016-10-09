@@ -10,10 +10,16 @@
   else
    gitrepo=$1
 #gitrepo contains first commandline argument
+ 
    git clone $gitrepo
 #command to clone from url
+
    cd $(find `pwd` -type d|sed -n 2p)
+
 #git log file is present inside the .git folder of newly created folder.
 #cd changes directory to inside the folder containing .git folder for git commands to work. 
    git shortlog -sn|sed -n 1p
+
+#shortlog summarize log output, -n Sort output according to the number of commits per author instead of author alphabetic order
+#sed 1p selects firest line author wih maximum commits
   fi
