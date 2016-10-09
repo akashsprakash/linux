@@ -1,0 +1,25 @@
+#!/bin/bash
+# Sell script to print the number of html tags in a webpage.
+#1.Get url as commandline argument as eg: www.<name>.com
+#2.If commandline argument is not present, get fle name and search for html tags.
+#3.If neither condition counts, print error message.
+  regularexpr='(www).[-A-Za-z0-9\+&@#/%?=~_|!:,.;]*[-A-Za-z0-9\+&@#/%=~_|]'
+#regularexp variable contains regular expression condition for validation
+  linkpage=$1
+#linkpage contains url from command line argument
+#condition check for regular expression
+  if [[ $linkpage =~ $regularexpr ]]
+  then 
+    wget "$linkpage"
+    count=`less index.html|grep -o "<[^>]*>"|wc -l`
+#grep -o "<[^>]*>" to order the html contents from indexfile
+    echo "Html tags: $count"
+#condition check for index file as filename
+  elif [[ -z "$linkpage" ]]; then
+    echo "Enter the html filename"
+    read name 
+    count=`less $name|grep -o "<[^>]*>"|wc -l`
+    echo "Html tags: $count" 
+  else
+    echo "Invalid input. Not a valid url."
+  fi
