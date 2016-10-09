@@ -1,0 +1,6 @@
+#!/bin/bash
+#Shell script to read a csv file and print all the keys
+  echo "Enter the csv file name: "
+  read csvfile
+  less $csvfile|sed -n 1p| awk -F "," '{print NF}'
+#sed selects the firstline of csv file and awk prints the number of keys
